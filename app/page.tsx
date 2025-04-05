@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Modal from "@/components/Modal";
+import './globals.css';
 
 interface Recipe {
   idMeal: string;

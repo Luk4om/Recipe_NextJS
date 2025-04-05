@@ -397,76 +397,6 @@ const fallbackMeals: Meal[] = [
         strMealThumb: "https://www.themealdb.com/images/media/meals/tqrrsq1511723764.jpg",
         idMeal: "52901"
     },
-    {
-        strMeal: "Salmon Avocado Salad",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/1549542994.jpg",
-        idMeal: "52960"
-    },
-    {
-        strMeal: "Smoky Lentil Chili with Squash",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/uwxqwy1483389553.jpg",
-        idMeal: "52784"
-    },
-    {
-        strMeal: "Spotted Dick",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/xqvyqr1511638875.jpg",
-        idMeal: "52886"
-    },
-    {
-        strMeal: "Steak and Kidney Pie",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/qysyss1511558054.jpg",
-        idMeal: "52881"
-    },
-    {
-        strMeal: "Sticky Toffee Pudding",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/xqqqtu1511637379.jpg",
-        idMeal: "52883"
-    },
-    {
-        strMeal: "Sticky Toffee Pudding Ultimate",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/xrptpq1483909204.jpg",
-        idMeal: "52793"
-    },
-    {
-        strMeal: "Strawberry Rhubarb Pie",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg",
-        idMeal: "53005"
-    },
-    {
-        strMeal: "Summer Pudding",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/rsqwus1511640214.jpg",
-        idMeal: "52889"
-    },
-    {
-        strMeal: "Three Fish Pie",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg",
-        idMeal: "52882"
-    },
-    {
-        strMeal: "Toad In The Hole",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/ytuvwr1503070420.jpg",
-        idMeal: "52822"
-    },
-    {
-        strMeal: "Treacle Tart",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/wprvrw1511641295.jpg",
-        idMeal: "52892"
-    },
-    {
-        strMeal: "Turkey Meatloaf",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/ypuxtw1511297463.jpg",
-        idMeal: "52845"
-    },
-    {
-        strMeal: "Vegetarian Casserole",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/vptwyt1511450962.jpg",
-        idMeal: "52863"
-    },
-    {
-        strMeal: "Vegetarian Chilli",
-        strMealThumb: "https://www.themealdb.com/images/media/meals/wqurxy1511453156.jpg",
-        idMeal: "52867"
-    }
 ];
 
 export default function CountryPage({ params: paramsPromise }: { params: Promise<{ country: string }> }) {
@@ -586,7 +516,8 @@ export default function CountryPage({ params: paramsPromise }: { params: Promise
                     {(data?.meals || fallbackMeals).map((item) => (
                         <div
                             key={item.idMeal}
-                            className="group card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                            onClick={() => fetchMealDetails(item.idMeal)}
+                            className="group card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                         >
                             <div className="relative w-full h-52 overflow-hidden rounded-t-xl">
                                 <Image
